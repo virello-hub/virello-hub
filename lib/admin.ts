@@ -1,0 +1,1 @@
+export const ADMIN_EMAIL = "virello2hub@gmail.com";

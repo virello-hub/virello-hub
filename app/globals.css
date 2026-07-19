@@ -2,25 +2,134 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111827;
+  --brand: #14b8a6;
+  --brand-dark: #0f9f91;
+  --section-background: #f8f9fa;
+  --footer-background: #111827;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand: var(--brand);
+  --font-sans: var(--font-poppins);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+  scroll-behavior: smooth;
 }
 
 body {
+  min-height: 100%;
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(20, 184, 166, 0.2);
+  color: #111827;
+}
+
+.section-white {
+  background: #ffffff;
+}
+
+.section-soft {
+  background: #f8f9fa;
+}
+
+.product-card {
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow:
+    0 1px 3px rgba(17, 24, 39, 0.06),
+    0 8px 24px rgba(17, 24, 39, 0.06);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 8px rgba(17, 24, 39, 0.07),
+    0 14px 32px rgba(17, 24, 39, 0.1);
+}
+
+.btn-cart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0.75rem;
+  background: #111827;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.btn-cart:hover {
+  background: #14b8a6;
+}
+
+.btn-cart:active {
+  transform: scale(0.98);
+}
+
+.btn-cart:disabled {
+  cursor: not-allowed;
+  background: #9ca3af;
+}
+
+.brand-link {
+  color: #111827;
+  transition: color 180ms ease;
+}
+
+.brand-link:hover {
+  color: #14b8a6;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #14b8a6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.12);
 }
